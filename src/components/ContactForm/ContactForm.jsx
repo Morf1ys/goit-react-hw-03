@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import InputMask from 'react-input-mask';
+import css from './ContactForm.module.css';
 
 const ContactForm = ({ onSubmit }) => {
   return (
@@ -18,10 +19,10 @@ const ContactForm = ({ onSubmit }) => {
         resetForm();
       }}
     >
-      <Form>
-        <label htmlFor="name">Name:</label>
-        <Field type="text" id="name" name="name" />
-        <ErrorMessage name="name" component="div" />
+      <Form className= {css['cont-form-us']}>
+        <label htmlFor="name" className={css['lbl-form-us']}>Name:</label>
+        <Field type="text" id="name" name="name" className={css['inp-box']} />
+        <ErrorMessage name="name" component="div" className={css.err}/>
 
         <label htmlFor="number">Number:</label>
         <Field name="number">
@@ -30,12 +31,13 @@ const ContactForm = ({ onSubmit }) => {
               {...field}
               mask="999-99-99"
               placeholder="123-45-67"
+              className={css['inp-box']}
             />
           )}
         </Field>
-        <ErrorMessage name="number" component="div" />
+        <ErrorMessage name="number" component="div" className={css.err} />
 
-        <button type="submit">Add Contact</button>
+        <button type="submit" className={css['btn-add']}>Add Contact</button>
       </Form>
     </Formik>
   );

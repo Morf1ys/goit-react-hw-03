@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './index.module.css';
+import css from './index.module.css';
 import { nanoid } from 'nanoid';
 import ContactForm from './components/ContactForm/ContactForm.jsx';
 import ContactList from './components/ContactList/ContactList.jsx'; 
@@ -40,11 +40,15 @@ export default function App() {
 
  
   return (
-    <>
-      <h1>Phonebook</h1>
-      <ContactForm onSubmit={handleAddContact} />
+    <div className={css['cont-main']}>
+      <div>
+      <h1 className={css.titletxt}>Phonebook</h1>
+        <ContactForm onSubmit={handleAddContact} />
+      </div>
+      <div>
       <SearchBox value={searchQuery} onChange={handleSearchChange} />
-      <ContactList contacts={contacts} filter={searchQuery} onDeleteContact={handleDeleteContact} />
-    </>
+        <ContactList contacts={contacts} filter={searchQuery} onDeleteContact={handleDeleteContact} />
+        </div>
+    </div>
   );
 }
