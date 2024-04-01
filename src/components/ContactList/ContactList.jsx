@@ -1,5 +1,5 @@
 
-import Contact from './Contact.jsx';
+import Contact from '../Contact/Contact.jsx';
 import css from './ContactList.module.css'
 const ContactList = ({ contacts, filter, onDeleteContact }) => {
   const filteredContacts = contacts.filter((contact) =>
